@@ -1,0 +1,17 @@
+extends ../../_layout
+
+
+block vars
+  - var page = 'style/travel'
+  - var title = 'Путешествия'
+
+  - var list = []
+
+  - list.push({title: 'Венеция', link: 'venice'})
+  - list.push({title: 'Лондон', link: 'london'})
+  - list.push({title: 'Париж', link: 'paris'})
+  - list.push({title: 'Мадрид', link: 'madrid'})
+
+
+block content
+  +list-page(page, title, list)

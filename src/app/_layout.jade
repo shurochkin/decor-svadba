@@ -1,0 +1,80 @@
+mixin nav(page)
+  .nav-client
+    case page
+      when 'home'
+        .left
+          a(href='/contact').link-contact Контакты
+        .right
+          a(href='/about').link-about О нас
+      default
+        .left.home
+          a(href='/').link-no-decor LeDecor
+        .right
+          a(href='/order').link-no-decor Заказать свадьбу
+
+mixin title(title)
+  if title != ''
+    title= title
+      |  :: Декорирование свадеб
+  else
+    title Декорирование свадеб
+
+mixin front-page(page, title, list)
+  .header-title
+    span Мы создадим <br> Вашу неповторимую свадьбу!
+  +nav(page)
+  .row.first-page-title-row
+    img(src='/images/logo-title.svg').logo-title
+    //.first-page-about: a(href='').link-no-decor О нас
+  .container
+    +draw-list(page, title, list)
+
+
+mixin list-page(page, title, list)
+  +nav(page)
+  .container.list-page
+    h1: span #{title}
+    +draw-list(page, title, list)
+
+mixin draw-list(page, title, list)
+  .row
+    each item in list
+      case page
+        when 'home'
+          - var link = '/'+item.link
+        default
+          - var link = '/'+page+'/'+item.link
+
+      a(href='#{link}').link-no-decor
+        .teaser-section
+          h2 #{item.title}
+          .teaser-img-wrapper
+            img(src='/images/#{page}/#{item.link}.jpg')
+
+
+
+html(lang='en')
+head
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(name='viewport' content='initial-scale=1')
+
+  block vars
+    - var activeMenu = ''
+    - var page = ''
+    - var title = ''
+
+  block title
+    +title(title)
+
+  block styles
+    link(rel='stylesheet' href='/app.min.css')
+  base(href="/" target="_self")
+  body(class!='#{page}')
+    block content
+
+  block metrics
+
+  block scripts
+    script(src='/app.min.js')
+
+

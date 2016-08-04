@@ -1,0 +1,17 @@
+extends ../../_layout
+
+
+block vars
+  - var page = 'style/national'
+  - var title = 'Национальные свадьбы'
+
+  - var list = []
+
+  - list.push({title: 'Китай', link: 'china'})
+  - list.push({title: 'Индия', link: 'india'})
+  - list.push({title: 'Мексика', link: 'mexico'})
+  - list.push({title: 'Греция', link: 'greece'})
+
+
+block content
+  +list-page(page, title, list)

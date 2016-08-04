@@ -1,0 +1,17 @@
+extends ../../_layout
+
+
+block vars
+  - var page = 'style/season'
+  - var title = 'Сезонные свадьбы'
+
+  - var list = []
+
+  - list.push({title: 'Зимняя', link: 'winter'})
+  - list.push({title: 'Весенняя', link: 'spring'})
+  - list.push({title: 'Летняя', link: 'summer'})
+  - list.push({title: 'Осенняя', link: 'autumn'})
+
+
+block content
+  +list-page(page, title, list)

@@ -1,0 +1,85 @@
+@import lib/susy
+@import lib/breakpoint
+@import lib/modular-scale
+
+
+$color-dark-grey: #98669B
+
+$wide-border: 2%
+
+//media
+$break-small:   767px
+$break-medium:  992px
+$break-large:  1200px
+
+
+@mixin menu_font
+  // font-family: 'PT Serif', serif
+  color: $color-dark-grey
+  // font-weight: bold
+
+@mixin link_ico
+  content: ''
+  background-size: cover
+  display: block
+  position: absolute
+  bottom: 0
+  width: 2.5rem
+  height: 3rem
+
+
+
+html
+  +breakpoint(max-width $break-large)
+    font-size: 90%
+  +breakpoint(max-width $break-medium)
+    font-size: 80%
+
+
+body
+  height: 100%
+  font-family: 'Times New Roman', Times, serif;
+  // font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+  // font-family: 'Helvetica', sans-serif
+  // font-family: 'Roboto Condensed', sans-serif
+  background-color: white
+  .container
+    padding: 0 $wide-border
+
+.row
+  +layout(auto 12 .35 inside)
+  position: relative
+  overflow: hidden
+  z-index: 1000
+
+
+// link to font http://fonts4web.ru/Helvetica.html#test
+// @font-face
+//   font-family: "Helvetica"
+//   src: url("/static/fonts/HelveticaRegular/HelveticaRegular.eot")
+//   src: url("/static/fonts/HelveticaRegular/HelveticaRegular.eot?#iefix")format("embedded-opentype"), url("/static/fonts/HelveticaRegular/HelveticaRegular.woff") format("woff"), url("/static/fonts/HelveticaRegular/HelveticaRegular.ttf") format("truetype")
+//   font-weight: normal
+
+// @font-face
+//   font-family: "Helvetica"
+//   src: url("/static/fonts/HelveticaBold/HelveticaBold.eot")
+//   src: url("/static/fonts/HelveticaBold/HelveticaBold.eot?#iefix")format("embedded-opentype"), url("/static/fonts/HelveticaBold/HelveticaBold.woff") format("woff"), url("/static/fonts/HelveticaBold/HelveticaBold.ttf") format("truetype")
+//   font-weight: bold
+
+// @font-face
+//   font-family: "Helvetica"
+//   src: url("/static/fonts/HelveticaLight/HelveticaLight.eot")
+//   src: url("/static/fonts/HelveticaLight/HelveticaLight.eot?#iefix")format("embedded-opentype"), url("/static/fonts/HelveticaLight/HelveticaLight.woff") format("woff"), url("/static/fonts/HelveticaLight/HelveticaLight.ttf") format("truetype")
+//   font-weight: 100
+
+@mixin transition($params...)
+  -webkit-transition:  $params
+  -moz-transition:  $params
+  -ms-transition:  $params
+  -o-transition:  $params
+  transition:  $params
+
+
+@import "./partials/shadow"
+@import "./partials/header"
+@import "./partials/style"
