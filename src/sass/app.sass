@@ -3,7 +3,7 @@
 @import lib/modular-scale
 
 
-$color-dark-grey: #98669B
+$color-pink: #98669B
 
 $wide-border: 2%
 
@@ -15,7 +15,7 @@ $break-large:  1200px
 
 @mixin menu_font
   // font-family: 'PT Serif', serif
-  color: $color-dark-grey
+  color: $color-pink
   // font-weight: bold
 
 @mixin link_ico
@@ -26,6 +26,16 @@ $break-large:  1200px
   bottom: 0
   width: 2.5rem
   height: 3rem
+
+@mixin page_title_ico
+  +link_ico
+  width: 6rem
+  height: 7rem
+
+@mixin page_subtitle_ico
+  +link_ico
+  width: 4.2rem
+  height: 6rem
 
 
 
@@ -38,6 +48,8 @@ html
 
 body
   height: 100%
+  font-size: 1rem
+  line-height: 1.2
   font-family: 'Times New Roman', Times, serif;
   // font-family: 'PT Serif', Georgia, 'Times New Roman', Times, serif;
   // font-family: 'Helvetica', sans-serif
@@ -45,6 +57,12 @@ body
   background-color: white
   .container
     padding: 0 $wide-border
+
+a, p, h1, h2, h3
+  color: $color-pink
+
+.clearfix
+  clear: both
 
 .row
   +layout(auto 12 .35 inside)

@@ -2,37 +2,33 @@ extends ../_layout
 
 
 block vars
-  - var activeMenu = ''
-  - var page = 'style'
-  - var title = 'Стиль свадьбы'
+  - var page = {title: 'Стиль свадьбы', url: 'style', type: 'list', class: 'list style', content: {}, list: []}
 
-  - var list = []
-
-  - list.push({title: 'Рустик', link: 'rustic'})
-  - list.push({title: 'Лесная', link: 'forest'})
-  - list.push({title: 'Бохо', link: 'boho'})
-  - list.push({title: 'Шебби-Шик', link: 'shebby-shik'})
-  - list.push({title: 'Сезонные', link: 'season'})
-  - list.push({title: 'Лофт', link: 'loft'})
-  - list.push({title: 'Восточная', link: 'oriental'})
-  - list.push({title: 'Национальные', link: 'national'})
-  - list.push({title: 'Кино (Оскар)', link: 'cinema'})
-  - list.push({title: 'Ретро 50-60 г (Стиляги)', link: 'retro-dudes'})
-  - list.push({title: 'Ретро 20-30 г (Арт-Нуво)', link: 'retro-artnouveau'})
-  - list.push({title: 'Морская', link: 'navy'})
-  - list.push({title: 'Рок-Диско', link: 'rock-disco'})
-  - list.push({title: 'Путешествия', link: 'travel'})
-  - list.push({title: 'Роскошь', link: 'luxury'})
-  - list.push({title: 'Глянец', link: 'gloss'})
-  - list.push({title: 'Техно', link: 'techno'})
-  - list.push({title: 'Рыцарский замок', link: 'castle'})
-  - list.push({title: 'Молодежная', link: 'youth'})
-  - list.push({title: 'Карнавальная', link: 'carnival'})
-  - list.push({title: 'Традиционная классическая', link: 'classic'})
-  - list.push({title: 'Индивидуальная', link: 'individual'})
-  - list.push({title: 'Фото как декор', link: 'photo'})
-  - list.push({title: 'Русский стиль', link: 'russian'})
+  - page.list.push({title: 'Рустик', link: 'rustic'})
+  - page.list.push({title: 'Лесная', link: 'forest'})
+  - page.list.push({title: 'Бохо', link: 'boho'})
+  - page.list.push({title: 'Шебби-Шик', link: 'shebby-shik'})
+  - page.list.push({title: 'Сезонные', link: 'season'})
+  - page.list.push({title: 'Лофт', link: 'loft'})
+  - page.list.push({title: 'Восточная', link: 'oriental'})
+  - page.list.push({title: 'Национальные', link: 'national'})
+  - page.list.push({title: 'Кино (Оскар)', link: 'cinema'})
+  - page.list.push({title: 'Ретро 50-60 г (Стиляги)', link: 'retro-dudes'})
+  - page.list.push({title: 'Ретро 20-30 г (Арт-Нуво)', link: 'retro-artnouveau'})
+  - page.list.push({title: 'Морская', link: 'navy'})
+  - page.list.push({title: 'Рок-Диско', link: 'rock-disco'})
+  - page.list.push({title: 'Путешествия', link: 'travel'})
+  - page.list.push({title: 'Роскошь', link: 'luxury'})
+  - page.list.push({title: 'Глянец', link: 'gloss'})
+  - page.list.push({title: 'Техно', link: 'techno'})
+  - page.list.push({title: 'Рыцарский замок', link: 'castle'})
+  - page.list.push({title: 'Молодежная', link: 'youth'})
+  - page.list.push({title: 'Карнавальная', link: 'carnival'})
+  - page.list.push({title: 'Традиционная классическая', link: 'classic'})
+  - page.list.push({title: 'Индивидуальная', link: 'individual'})
+  - page.list.push({title: 'Фото как декор', link: 'photo'})
+  - page.list.push({title: 'Русский стиль', link: 'russian'})
 
 
 block content
-  +list-page(page, title, list)
+  +list-page(page)

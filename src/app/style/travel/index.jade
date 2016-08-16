@@ -2,16 +2,13 @@ extends ../../_layout
 
 
 block vars
-  - var page = 'style/travel'
-  - var title = 'Путешествия'
+  - var page = {title: 'Путешествия', url: 'style/travel', type: 'list', class: 'list travel', content: {}, list: [], breadcrumbs: [{link: 'style', name: 'Стиль свадьбы'}]}
 
-  - var list = []
-
-  - list.push({title: 'Венеция', link: 'venice'})
-  - list.push({title: 'Лондон', link: 'london'})
-  - list.push({title: 'Париж', link: 'paris'})
-  - list.push({title: 'Мадрид', link: 'madrid'})
+  - page.list.push({title: 'Венеция', link: 'venice'})
+  - page.list.push({title: 'Лондон', link: 'london'})
+  - page.list.push({title: 'Париж', link: 'paris'})
+  - page.list.push({title: 'Мадрид', link: 'madrid'})
 
 
 block content
-  +list-page(page, title, list)
+  +list-page(page)

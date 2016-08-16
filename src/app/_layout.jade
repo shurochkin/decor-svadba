@@ -1,57 +1,90 @@
 mixin nav(page)
   .nav-client
-    case page
+    case page.type
       when 'home'
         .left
           a(href='/contact').link-contact Контакты
         .right
           a(href='/about').link-about О нас
+      when 'list'
+      when 'page'
       default
         .left.home
           a(href='/').link-no-decor LeDecor
+          if page.breadcrumbs
+            each item in page.breadcrumbs
+              a(href='/#{item.link}').link-no-decor #{item.name}
         .right
           a(href='/order').link-no-decor Заказать свадьбу
 
-mixin title(title)
-  if title != ''
-    title= title
-      |  :: Декорирование свадеб
-  else
+mixin title(page)
+  if page.title == ''
     title Декорирование свадеб
+  else
+    title= page.title
+      |  :: Декорирование свадеб
 
-mixin front-page(page, title, list)
+mixin front-page(page)
   .header-title
     span Мы создадим <br> Вашу неповторимую свадьбу!
   +nav(page)
-  .row.first-page-title-row
+  .row.first-page-title
     img(src='/images/logo-title.svg').logo-title
     //.first-page-about: a(href='').link-no-decor О нас
   .container
-    +draw-list(page, title, list)
+    +draw-list(page)
 
 
-mixin list-page(page, title, list)
+mixin list-page(page)
   +nav(page)
   .container.list-page
-    h1: span #{title}
-    +draw-list(page, title, list)
+    h1: span #{page.title}
+    +draw-list(page)
 
-mixin draw-list(page, title, list)
+mixin draw-list(page)
   .row
-    each item in list
-      case page
+    each item in page.list
+      case page.type
         when 'home'
           - var link = '/'+item.link
+          - var imgpath = '/images/home/'+item.link+'.jpg'
+        when 'list'
         default
-          - var link = '/'+page+'/'+item.link
+          - var link = '/'+page.url+'/'+item.link
+          - var imgpath = '/images/'+page.url+'/'+item.link+'.jpg'
+
 
       a(href='#{link}').link-no-decor
         .teaser-section
           h2 #{item.title}
           .teaser-img-wrapper
-            img(src='/images/#{page}/#{item.link}.jpg')
+            img(src='#{imgpath}')
 
+mixin style-page(page)
+  +nav(page)
+  .container
+    h1: span #{page.title}
 
+    .row.desc
+      p !{page.content.desc}
+    .clearfix
+    .slider
+      .nav
+        .left
+        .right
+      - var i = 1;
+      while i < page.slider.qnt + 1
+        .slide
+          img(src='/images/#{page.slider.path}#{i++}.jpg')
+
+      .slide
+    .row
+      .col
+        h2: span Флористика 
+        p !{page.content.flow}
+      .col
+        h2: span Must–have
+        p !{page.content.must}
 
 html(lang='en')
 head
@@ -60,16 +93,14 @@ head
 
   block vars
     - var activeMenu = ''
-    - var page = ''
-    - var title = ''
 
   block title
-    +title(title)
+    +title(page)
 
   block styles
     link(rel='stylesheet' href='/app.min.css')
   base(href="/" target="_self")
-  body(class!='#{page}')
+  body(class!='#{page.class}')
     block content
 
   block metrics

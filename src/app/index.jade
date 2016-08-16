@@ -2,16 +2,16 @@ extends _layout
 
 block vars
 
-  - var page = 'home'
-  - var title = ''
-  - var list = []
+  - var page = {title: 'Главная', url: '', type: 'home', class: 'home list', content: {},list: []}
+  //- - var list = []
 
-  - list.push({title: 'Стиль свадьбы', link: 'style'})
-  - list.push({title: 'Цвет свадьбы', link: 'color'})
-  - list.push({title: 'Оформление зон', link: 'zone'})
-  - list.push({title: 'Элементы', link: 'element'})
+  - page.list.push({title: 'Стиль свадьбы', link: 'style'})
+  - page.list.push({title: 'Цвет свадьбы', link: 'color'})
+  - page.list.push({title: 'Оформление зон', link: 'zone'})
+  - page.list.push({title: 'Элементы', link: 'element'})
+
 
 block content
-  +front-page(page, title, list)
+  +front-page(page)
 
 

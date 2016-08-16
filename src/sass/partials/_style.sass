@@ -19,7 +19,11 @@
 
 .link-no-decor
   text-decoration: none
-  color: $color-dark-grey
+  color: $color-pink
+  display: block
+  &:first-child
+    font-size: 1.2em
+    text-decoration: underline
 
 
 .nav-client
@@ -67,37 +71,98 @@ table.doc-list
     img
       height: 10rem
 
-.list-page, .style-decor-page, .contact
-  h1
+.list, .page
+  h1, h2
     // font-family: 'PT Serif', serif
-    color: $color-dark-grey
+    color: $color-pink
     text-align: center
-    font-size: 2.2rem
     margin-top: 0
     span
       display: inline-block
       position: relative
-      padding: 0 4rem
       +breakpoint(max-width $break-small)
         padding: 0
+  h1
+    font-size: 2.2rem
+  h2
+    font-size: 1.5rem
 
-      +breakpoint(min-width $break-small)
-        &:before
-          +link_ico
-          background: url('/images/title-leaf-left.svg') no-repeat 0 0
-          left: 0
-        &:after
-          +link_ico
-          background: url('/images/title-leaf-right.svg') no-repeat 0 0
-          right: 0
 
-.list-page
   .teaser-section
     margin-bottom: 3rem
     h2
       font-size: 1rem
 
-.style-decor-page
+.list
+  h1
+    span
+      padding: 0 4rem
+      +breakpoint(min-width $break-small)
+        &:before
+          +link_ico
+          background: url('/images/list-title-left.svg') no-repeat 0 0
+          left: 0
+        &:after
+          +link_ico
+          background: url('/images/list-title-right.svg') no-repeat 0 0
+          right: 0
+
+
+.page.style
+  .container
+    +breakpoint(min-width $break-small)
+      margin-top: -2rem
+  h1
+    text-align: center
+    span
+      +breakpoint(min-width $break-small)
+        padding: 2.3rem 3.8rem
+        &:before
+          +page_title_ico
+          background: url('/images/style-title-left.svg') no-repeat 0 0
+          left: 0
+        &:after
+          +page_title_ico
+          background: url('/images/style-title-right.svg') no-repeat 0 0
+          right: 0
+  h2
+    text-align: center
+    span
+      +breakpoint(min-width $break-small)
+        padding: 2.2rem
+        width: 8.5rem
+        &:before
+          +page_subtitle_ico
+          background: url('/images/style-subtitle-left.svg') no-repeat 0 0
+          left: 0
+        &:after
+          +page_subtitle_ico
+          background: url('/images/style-subtitle-right.svg') no-repeat 0 0
+          right: 0
+  .desc
+    text-align: justify
+    +breakpoint(max-width $break-small)
+      +span(12)
+    +breakpoint(min-width $break-small)
+      +span(6)
+      +push(3)
+    +breakpoint(min-width $break-medium)
+      +span(4)
+      +push(4)
+
+  .row .col
+    +breakpoint(max-width $break-small)
+      +span(12)
+    +breakpoint(min-width $break-small)
+      +span(6)
+    +breakpoint(min-width $break-medium)
+      +span(5)
+      +push(1)
+  p
+    line-height: 1.5
+
+
+.list-style-page
   h1
     margin-bottom: 0
   h3
@@ -114,7 +179,7 @@ table.doc-list
         +span(12)
     +breakpoint(max-width $break-small)
       width: 100%
-    color: $color-dark-grey
+    color: $color-pink
     background: white
     h4
       font-size: 1.2rem
@@ -126,7 +191,7 @@ table.doc-list
       line-height: 1.3
     .link
       span
-        border-bottom: 1px solid $color-dark-grey
+        border-bottom: 1px solid $color-pink
         cursor: pointer
         &:hover
           opacity: 0.5
@@ -288,7 +353,7 @@ table.doc-list
 
 .contact
   text-align: center
-  color: $color-dark-grey
+  color: $color-pink
   h1
     margin-bottom: 8rem
   h3

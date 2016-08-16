@@ -2,16 +2,13 @@ extends ../../_layout
 
 
 block vars
-  - var page = 'style/season'
-  - var title = 'Сезонные свадьбы'
+  - var page = {title: 'Сезонные свадьбы', url: 'style/season', type: 'list', class: 'list season', content: {}, list: []}
 
-  - var list = []
-
-  - list.push({title: 'Зимняя', link: 'winter'})
-  - list.push({title: 'Весенняя', link: 'spring'})
-  - list.push({title: 'Летняя', link: 'summer'})
-  - list.push({title: 'Осенняя', link: 'autumn'})
+  - page.list.push({title: 'Зимняя', link: 'winter'})
+  - page.list.push({title: 'Весенняя', link: 'spring'})
+  - page.list.push({title: 'Летняя', link: 'summer'})
+  - page.list.push({title: 'Осенняя', link: 'autumn'})
 
 
 block content
-  +list-page(page, title, list)
+  +list-page(page)
