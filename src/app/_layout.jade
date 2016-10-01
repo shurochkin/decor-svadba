@@ -69,6 +69,7 @@ mixin style-page(page)
     .row.desc
       p !{page.content.desc}
     .clearfix
+    h2 Варианты оформления в стиле #{page.title}:
     .slider
       .nav
         .left
@@ -86,6 +87,8 @@ mixin style-page(page)
       .col
         h2: span Must–have
         p !{page.content.must}
+    .row
+      a(href="#").btn Заказать свадьбу в стиле #{page.title}
 
 html(lang='en')
 head
