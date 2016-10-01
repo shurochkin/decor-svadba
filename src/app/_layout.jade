@@ -36,7 +36,8 @@ mixin front-page(page)
 
 
 mixin list-page(page)
-  +nav(page)
+  if !page.nomenu
+    +nav(page)
   .container.list-page
     h1: span #{page.title}
     +draw-list(page)
@@ -54,11 +55,11 @@ mixin draw-list(page)
           - var imgpath = '/images/'+page.url+'/'+item.link+'.jpg'
 
 
-      a(href='#{link}').link-no-decor
+      a(href='#{link}', title="#{item.title}").link-no-decor
         .teaser-section
           h2 #{item.title}
           .teaser-img-wrapper
-            img(src='#{imgpath}')
+            img(src='#{imgpath}', alt="#{item.title}")
 
 mixin style-page(page)
   +nav(page)
