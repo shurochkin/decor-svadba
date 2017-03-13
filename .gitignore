@@ -2,8 +2,8 @@
 .sass-cache
 .svn
 .idea
-.iml
-.ipr
+*.iml
+*.ipr
 build
 node_modules
 data
